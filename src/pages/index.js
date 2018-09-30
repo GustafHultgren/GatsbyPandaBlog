@@ -1,12 +1,18 @@
-import React from "react"
-import { css } from "react-emotion"
-import { Link, graphql } from "gatsby"
-import { rhythm } from "../utils/typography"
-import Layout from "../components/layout"
+import React from "react";
+import { css } from "react-emotion";
+import { Link, graphql } from "gatsby";
+import { rhythm } from "../utils/typography";
+import Layout from "../components/layout";
+import { Helmet } from 'react-helmet';
 
 export default ({ data }) => {
   return (
     <Layout>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Pandas</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div>
         <h1
           className={css`
@@ -24,10 +30,8 @@ export default ({ data }) => {
               className={css`
                 text-decoration: none;
                 color: inherit;
-              `
-}
+              `}
             >
-
               <h3
                 className={css`
                   margin-bottom: ${rhythm(1 / 4)};
@@ -48,8 +52,8 @@ export default ({ data }) => {
         ))}
       </div>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query {
@@ -70,4 +74,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
